@@ -1,0 +1,142 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.9.18
+    cli_version: 0.17.3
+    framework: torch
+    is_jupyter_run: true
+    is_kaggle_kernel: false
+    start_time: 1728989410
+    t:
+      1:
+      - 1
+      - 55
+      2:
+      - 1
+      - 5
+      - 53
+      - 55
+      3:
+      - 7
+      - 23
+      - 66
+      4: 3.9.18
+      5: 0.17.3
+      8:
+      - 1
+      - 5
+      13: linux-x86_64
+    m:
+    - 1: trainer/global_step
+      6:
+      - 3
+    - 1: valid_loss
+      5: 1
+      6:
+      - 1
+    - 1: valid_loss_var
+      5: 1
+      6:
+      - 1
+    - 1: valid_loss_ortho
+      5: 1
+      6:
+      - 1
+    - 1: epoch
+      5: 1
+      6:
+      - 1
+    - 1: train_loss_epoch
+      5: 1
+      6:
+      - 1
+    - 1: train_loss_var_epoch
+      5: 1
+      6:
+      - 1
+    - 1: train_loss_ortho_epoch
+      5: 1
+      6:
+      - 1
+    - 1: train_loss_step
+      5: 1
+      6:
+      - 1
+    - 1: train_loss_var_step
+      5: 1
+      6:
+      - 1
+    - 1: train_loss_ortho_step
+      5: 1
+      6:
+      - 1
+preprocessing:
+  desc: null
+  value: null
+postprocessing:
+  desc: null
+  value: null
+layers:
+  desc: null
+  value:
+  - 30
+  - 20
+  - 20
+  - 1
+eta:
+  desc: null
+  value: 0.05
+r:
+  desc: null
+  value: 3
+gamma:
+  desc: null
+  value: 50
+cell:
+  desc: null
+  value: null
+friction:
+  desc: null
+  value:
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.08829064051373252
+  - 0.08829064051373252
+  - 0.08829064051373252
+  - 0.0943611387307269
+  - 0.0943611387307269
+  - 0.0943611387307269
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.08829064051373252
+  - 0.08829064051373252
+  - 0.08829064051373252
+  - 0.0943611387307269
+  - 0.0943611387307269
+  - 0.0943611387307269
+  - 0.10189937099090629
+  - 0.10189937099090629
+  - 0.10189937099090629
+options:
+  desc: null
+  value:
+    nn:
+      activation: tanh
+    sigmoid:
+      deviation: 0.8
+    optimizer:
+      lr: 0.001
+      weight_decay: 1.0e-05

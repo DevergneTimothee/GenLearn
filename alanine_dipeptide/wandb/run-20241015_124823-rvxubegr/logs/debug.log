@@ -1,0 +1,35 @@
+2024-10-15 12:48:23,772 INFO    MainThread:3467808 [wandb_setup.py:_flush():76] Current SDK version is 0.17.3
+2024-10-15 12:48:23,772 INFO    MainThread:3467808 [wandb_setup.py:_flush():76] Configure stats pid to 3467808
+2024-10-15 12:48:23,772 INFO    MainThread:3467808 [wandb_setup.py:_flush():76] Loading settings from /home/tdevergne@iit.local/.config/wandb/settings
+2024-10-15 12:48:23,772 INFO    MainThread:3467808 [wandb_setup.py:_flush():76] Loading settings from /home/tdevergne@iit.local/Documents/generator_learning/NeurIPS2024/GenLearn/alanine_dipeptide/wandb/settings
+2024-10-15 12:48:23,772 INFO    MainThread:3467808 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-10-15 12:48:23,772 INFO    MainThread:3467808 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-10-15 12:48:23,772 INFO    MainThread:3467808 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-10-15 12:48:23,772 INFO    MainThread:3467808 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-10-15 12:48:23,773 INFO    MainThread:3467808 [wandb_init.py:_log_setup():520] Logging user logs to ./wandb/run-20241015_124823-rvxubegr/logs/debug.log
+2024-10-15 12:48:23,773 INFO    MainThread:3467808 [wandb_init.py:_log_setup():521] Logging internal logs to ./wandb/run-20241015_124823-rvxubegr/logs/debug-internal.log
+2024-10-15 12:48:23,773 INFO    MainThread:3467808 [wandb_init.py:_jupyter_setup():466] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x7f89505fba60>
+2024-10-15 12:48:23,773 INFO    MainThread:3467808 [wandb_init.py:init():560] calling init triggers
+2024-10-15 12:48:23,773 INFO    MainThread:3467808 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {}
+2024-10-15 12:48:23,773 INFO    MainThread:3467808 [wandb_init.py:init():610] starting backend
+2024-10-15 12:48:23,773 INFO    MainThread:3467808 [wandb_init.py:init():614] setting up manager
+2024-10-15 12:48:23,775 INFO    MainThread:3467808 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-10-15 12:48:23,776 INFO    MainThread:3467808 [wandb_init.py:init():622] backend started and connected
+2024-10-15 12:48:23,780 INFO    MainThread:3467808 [wandb_run.py:_label_probe_notebook():1334] probe notebook
+2024-10-15 12:48:23,781 INFO    MainThread:3467808 [wandb_run.py:_label_probe_notebook():1344] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-10-15 12:48:23,781 INFO    MainThread:3467808 [wandb_init.py:init():711] updated telemetry
+2024-10-15 12:48:23,912 INFO    MainThread:3467808 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-10-15 12:48:24,454 INFO    MainThread:3467808 [wandb_run.py:_on_init():2402] communicating current version
+2024-10-15 12:48:24,539 INFO    MainThread:3467808 [wandb_run.py:_on_init():2411] got version response upgrade_message: "wandb version 0.18.3 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-10-15 12:48:24,539 INFO    MainThread:3467808 [wandb_init.py:init():795] starting run threads in backend
+2024-10-15 12:48:30,706 INFO    MainThread:3467808 [wandb_run.py:_console_start():2380] atexit reg
+2024-10-15 12:48:30,706 INFO    MainThread:3467808 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2024-10-15 12:48:30,706 INFO    MainThread:3467808 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2024-10-15 12:48:30,706 INFO    MainThread:3467808 [wandb_run.py:_redirect():2325] Redirects installed.
+2024-10-15 12:48:30,707 INFO    MainThread:3467808 [wandb_init.py:init():838] run started, returning control to user process
+2024-10-15 12:48:30,716 INFO    MainThread:3467808 [wandb_run.py:_config_callback():1382] config_cb None None {'preprocessing': None, 'postprocessing': None, 'layers': [30, 20, 20, 1], 'eta': 0.05, 'r': 3, 'gamma': 50, 'cell': None, 'friction': [0.10189937099090629, 0.10189937099090629, 0.10189937099090629, 0.10189937099090629, 0.10189937099090629, 0.10189937099090629, 0.08829064051373252, 0.08829064051373252, 0.08829064051373252, 0.0943611387307269, 0.0943611387307269, 0.0943611387307269, 0.10189937099090629, 0.10189937099090629, 0.10189937099090629, 0.10189937099090629, 0.10189937099090629, 0.10189937099090629, 0.10189937099090629, 0.10189937099090629, 0.10189937099090629, 0.08829064051373252, 0.08829064051373252, 0.08829064051373252, 0.0943611387307269, 0.0943611387307269, 0.0943611387307269, 0.10189937099090629, 0.10189937099090629, 0.10189937099090629], 'options': {'nn': {'activation': 'tanh'}, 'sigmoid': {'deviation': 0.8}, 'optimizer': {'lr': 0.001, 'weight_decay': 1e-05}}}
+2024-10-15 12:49:22,954 WARNING MsgRouterThr:3467808 [router.py:message_loop():77] message_loop has been closed
+2024-10-15 12:49:24,250 INFO    MainThread:3467808 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2024-10-15 12:49:24,250 INFO    MainThread:3467808 [wandb_init.py:_pause_backend():431] pausing backend
