@@ -1,0 +1,36 @@
+cell: null
+eta: 0.05
+friction: !!python/object/apply:numpy.core.multiarray.scalar
+- !!python/object/apply:numpy.dtype
+  args:
+  - f8
+  - false
+  - true
+  state: !!python/tuple
+  - 3
+  - <
+  - null
+  - null
+  - null
+  - -1
+  - -1
+  - 0
+- !!binary |
+  D0lIYhM91D8=
+gamma: 30.0
+layers:
+- 1
+- 20
+- 20
+- 1
+options:
+  nn:
+    activation: tanh
+  optimizer:
+    lr: 0.001
+    weight_decay: 1.0e-05
+  sigmoid:
+    deviation: 0.8
+postprocessing: null
+preprocessing: null
+r: 3

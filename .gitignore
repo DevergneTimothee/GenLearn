@@ -1,0 +1,10 @@
+# Ignore wandb files
+wandb/
+
+# Ignore lightning files
+lightning/
+
+# Ignore any other specific files or directories
+*.log
+*.tmp
+
