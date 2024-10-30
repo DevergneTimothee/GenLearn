@@ -85,7 +85,6 @@ class Generator(BaseCV, lightning.LightningModule):
         self.log(f"{name}_loss_var", loss_ef, on_epoch=True)
         self.log(f"{name}_loss_ortho", loss_ortho, on_epoch=True)
         return loss
-
 class GeneratorLoss(torch.nn.Module):
   def __init__(self, model, eta, cell, friction, gamma, n_cvs):
     super().__init__()
@@ -101,14 +100,14 @@ class GeneratorLoss(torch.nn.Module):
     pre_factor = n / (n - 1)
     mean = weights.mean()
     if X.ndim == 2:
-        return   pre_factor * (torch.einsum("ij,ik,i->jk",X,X,weights/mean) / n )#(X.T @ X / n - mean @ mean.T)
+        return   pre_factor * (torch.einsum("ij,ik,i->jk",X,X,weights/mean)/n )#(X.T @ X / n - mean @ mean.T)
     else:
         return pre_factor * (torch.einsum("ijk,ilk,i->jl",X,X,weights/mean) / n)
-
   def get_parameter_dict(self,model):
     return dict(model.named_parameters()) 
   def forward(self, data, output, weights):
     lambdas = self.lambdas**2
+    diag_lamb = torch.diag(lambdas)
     #sorted_lambdas = lambdas[torch.argsort(lambdas)]
     r = output.shape[1]
     sample_size = output.shape[0]//2
@@ -125,25 +124,24 @@ class GeneratorLoss(torch.nn.Module):
 
 
     
-    cov_X =  self.compute_covariance(psi_X * lambdas.unsqueeze(0), weights_X, centering=True) 
-    cov_Y =  self.compute_covariance(psi_Y * lambdas.unsqueeze(0), weights_Y, centering=True)
+    cov_X =  self.compute_covariance(psi_X , weights_X, centering=True) 
+    cov_Y =  self.compute_covariance(psi_Y , weights_Y, centering=True)
 
-    cov_X_u =  self.compute_covariance(psi_X, weights_X, centering=True) 
-    cov_Y_u =  self.compute_covariance(psi_Y, weights_Y, centering=True) 
 
-    dcov_X =  self.compute_covariance(gradient_X * lambdas.unsqueeze(0).unsqueeze(2), weights_X) 
-    dcov_Y =  self.compute_covariance(gradient_Y * lambdas.unsqueeze(0).unsqueeze(2), weights_Y) 
-
+    dcov_X =  self.compute_covariance(gradient_X , weights_X) 
+    dcov_Y =  self.compute_covariance(gradient_Y , weights_Y) 
+    
+    W1 = (self.eta *cov_X + dcov_X ) @ diag_lamb
+    W2 = (self.eta *cov_Y + dcov_Y) @ diag_lamb
+    
     mean_weights_x = weights_X.mean()
     mean_weights_y = weights_Y.mean()
-    loss_ef = torch.trace( (self.eta *cov_X + dcov_X ).T @ (self.eta *cov_Y + dcov_Y) - cov_X - cov_Y)
+    loss_ef = torch.trace( ((cov_X@diag_lamb) @ W2 + (cov_Y@diag_lamb)@W1)/2 - cov_X@diag_lamb - cov_Y@diag_lamb)
         # Compute loss_ortho
-    loss_ortho = self.gamma * (torch.trace((torch.eye(output.shape[1], device=output.device) - cov_X_u).T @ (torch.eye(output.shape[1], device=output.device) - cov_X_u)))
+    loss_ortho = self.gamma * (torch.trace((torch.eye(output.shape[1], device=output.device) - cov_X).T @ (torch.eye(output.shape[1], device=output.device) - cov_X)))
     #loss_ortho = penalty
     loss = loss_ef + loss_ortho#loss_ortho
     return loss, loss_ef, loss_ortho
-
-
 def compute_covariance(X,weights, centering=False):
     n = X.size(0)
     pre_factor = 1.0
