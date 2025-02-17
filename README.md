@@ -1,10 +1,13 @@
 # GenLearn
-This repo contains the code and notebooks to reproduce the results of the papers: https://arxiv.org/abs/2406.09028 and https://chemrxiv.org/engage/chemrxiv/article-details/672cd8425a82cea2fa640adc
+This repo contains the code and notebooks to reproduce the results of the  following papers: https://arxiv.org/abs/2406.09028 and https://chemrxiv.org/engage/chemrxiv/article-details/672cd8425a82cea2fa640adc
+The notebooks used to reproduce the results of https://arxiv.org/abs/2406.09028 are in the NeurIPS folder, however, the code for the training is not optimized.
 
-The 1D potential folder contains additional experiment to get your hands on the code, and try different hyperparameters 
+On the other hand, notebooks, with (some) explanation can be found in the alanine_dipeptide and alanine_tetrapeptide folders. They rely on a modified fork of mlcolvar. To use it, 
+```console
+hello@myworkstation:~$git clone https://github.com/DevergneTimothee/mlcolvar
+hello@myworkstation:~$cd mlcolvar
+hello@myworkstation:~$pip install -e .
+```
 
-The Muller_Brown folder contains notebook to reproduce the results of the paper 
+The COLVAR files can be found in the data folder, while the input files can be found in the inputs folders of alanine_tetrapeptide and alanine_dipeptide
 
-The alanine dipeptide folder contains notebooks and models to reproduce the trainings and the figures of the paper (training with a trajectory biased with phi and the other biased with psi).
-
-The data folder contains the trajectory biased on phi of the alanine dipeptide experiment.
